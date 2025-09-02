@@ -1,0 +1,7 @@
+selenium
+pillow
+opencv-python
+pytesseract
+pyautogui
+tk
+webdriver-manager
