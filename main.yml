@@ -9,26 +9,26 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install pyinstaller
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
 
-    - name: Build EXE
-      run: |
-        pyinstaller --onefile --noconsole --icon=A_digital_vector_graphic_displays_a_square_icon_wi.png tatkal_warrior.py
+      - name: Build EXE with PyInstaller
+        run: |
+          pyinstaller --onefile --icon=icon.png tatkal_warrior.py
 
-    - name: Upload EXE
-      uses: actions/upload-artifact@v3
-      with:
-        name: TatkalWarrior-EXE
-        path: dist/tatkal_warrior.exe
+      - name: Upload EXE
+        uses: actions/upload-artifact@v3
+        with:
+          name: TatkalWarrior-EXE
+          path: dist/tatkal_warrior.exe
