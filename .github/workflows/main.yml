@@ -7,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -23,12 +22,12 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
 
-      - name: Build EXE with PyInstaller
+      - name: Build EXE
         run: |
-          pyinstaller --onefile --windowed --icon=logo.ico tatkal_warrior.py
+          pyinstaller --onefile tatkal_warrior.py
 
-      - name: Upload EXE artifact
+      - name: Upload EXE
         uses: actions/upload-artifact@v3
         with:
           name: TatkalWarrior-EXE
-          path: dist
+          path: dist/tatkal_warrior.exe
